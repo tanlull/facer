@@ -36,8 +36,8 @@
     </v-content>
     <v-footer :fixed="fixed" app>
       <v-flex class="text-xs-right">
-        <a href="http://gjovanov.com/" style="color: white">
-          <span>gjovanov - &copy; 2019</span>
+        <a href="http://tot.co.th" style="color: white">
+          <span>TOT &copy; 2020</span>
         </a>
         &nbsp;
       </v-flex>
@@ -61,7 +61,7 @@ export default {
       miniVariant: true,
       right: true,
       rightDrawer: false,
-      title: 'face&reg; - Realtime Face Recognition'
+      title: 'TOT - Face 2 Face Customer Service Platform'
     }
   },
   computed: {
