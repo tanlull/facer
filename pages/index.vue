@@ -20,21 +20,30 @@
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title>ถ่ายรูป</v-list-item-title>
-                <v-list-item-subtitle>Upload photos either by the File Upload or using your Camera</v-list-item-subtitle>
+                <v-list-item-subtitle
+                  >Upload photos either by the File Upload or using your
+                  Camera</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
             <v-divider />
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title>Train โมเดล</v-list-item-title>
-                <v-list-item-subtitle>Train the model for all users in the catalog</v-list-item-subtitle>
+                <v-list-item-subtitle
+                  >Train the model for all users in the
+                  catalog</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
             <v-divider />
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title>ใช้งาน</v-list-item-title>
-                <v-list-item-subtitle>Recognize your face using browser camera</v-list-item-subtitle>
+                <v-list-item-subtitle
+                  >Recognize your face using browser
+                  camera</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -49,5 +58,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

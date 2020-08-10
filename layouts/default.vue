@@ -1,6 +1,13 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" permanent fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      permanent
+      fixed
+      app
+    >
       <v-list>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router>
           <v-list-item-action>
@@ -28,7 +35,7 @@
           indeterminate
         >
           Loading 7MB models.
-          <br>
+          <br />
           Please be patient...
         </v-progress-circular>
         <nuxt />
@@ -47,34 +54,34 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: true,
       fixed: false,
       items: [
-        { icon: 'home', title: 'Welcome', to: '/' },
-        { icon: 'people', title: 'Users', to: '/users' },
-        { icon: 'wallpaper', title: 'Train', to: '/train' },
-        { icon: 'camera', title: 'Recognize', to: '/recognize' }
+        { icon: "home", title: "Welcome", to: "/" },
+        { icon: "people", title: "Users", to: "/users" },
+        { icon: "wallpaper", title: "Train", to: "/train" },
+        { icon: "camera", title: "Recognize", to: "/recognize" }
       ],
       miniVariant: true,
       right: true,
       rightDrawer: false,
-      title: 'TOT - Face 2 Face Customer Service Platform'
-    }
+      title: "TOT - Face 2 Face Customer Service Platform"
+    };
   },
   computed: {
-    loading () {
-      return this.$store.state.face.loading
+    loading() {
+      return this.$store.state.face.loading;
     }
   },
-  created () {
-    this.$vuetify.theme.dark = true
+  created() {
+    this.$vuetify.theme.dark = true;
   },
-  async mounted () {
-    const self = this
-    await self.$store.dispatch('face/load')
+  async mounted() {
+    const self = this;
+    await self.$store.dispatch("face/load");
   }
-}
+};
 </script>

@@ -1,31 +1,18 @@
 <template>
   <v-layout row align-center justify-center wrap>
+    <v-flex xs12 md6>
+      <canvas id="live-canvas" width="320" height="247" />
+    </v-flex>
+    <v-flex xs12 md6>
+      <div style="visibility: hidden">
+        <video id="live-video" width="0" height="0" autoplay />
+      </div>
+    </v-flex>
     <v-col cols="6" sm="3" md="3">
       <v-text-field
         label="ชื่อลูกค้า"
         placeholder="นายธัญญา สัตยาอภิธาน"
         :value="customerName"
-        outlined
-      ></v-text-field>
-    </v-col>
-    <v-col cols="6" sm="3" md="3">
-      <v-text-field
-        label="Customer Lifetime Value"
-        placeholder="1,000,000"
-        outlined
-      ></v-text-field>
-    </v-col>
-    <v-col cols="6" sm="3" md="3">
-      <v-text-field
-        label="บริการที่ใช้งาน"
-        placeholder="Fttx - Net แรง 300/300"
-        outlined
-      ></v-text-field>
-    </v-col>
-    <v-col cols="6" sm="3" md="3">
-      <v-text-field
-        label="ค่าบริการค้างชำระ"
-        placeholder="535"
         outlined
       ></v-text-field>
     </v-col>
@@ -40,14 +27,27 @@
     <v-col cols="3" sm="3" md="3">
       <v-text-field label="Churn" placeholder="High" outlined></v-text-field>
     </v-col>
-    <v-flex xs12 md6>
-      <canvas id="live-canvas" width="320" height="247" />
-    </v-flex>
-    <v-flex xs12 md6>
-      <div style="visibility: hidden">
-        <video id="live-video" width="0" height="0" autoplay />
-      </div>
-    </v-flex>
+    <v-col cols="6" sm="3" md="3">
+      <v-text-field
+        label="ค่าบริการค้างชำระ"
+        placeholder="535"
+        outlined
+      ></v-text-field>
+    </v-col>
+    <v-col cols="6" sm="3" md="3">
+      <v-text-field
+        label="Customer Lifetime Value"
+        placeholder="84,000"
+        outlined
+      ></v-text-field>
+    </v-col>
+    <v-col cols="6" sm="3" md="3">
+      <v-text-field
+        label="บริการที่ใช้งาน"
+        placeholder="Fttx - Net แรง 300/300"
+        outlined
+      ></v-text-field>
+    </v-col>
   </v-layout>
 </template>
 
@@ -138,7 +138,7 @@ export default {
 
             if (!detection.recognition) return;
 
-            console.log("Recognized:", detection);
+            // console.log("Recognized:", detection);
             // Assign Label
             const { label } = detection.recognition;
             this.customerName = label;
@@ -151,6 +151,8 @@ export default {
               return expressions[key] === maxMoodConf;
             })[0];
             this.CustomerMood = key;
+
+            // console.log("Camera: ", navigator.mediaDevices.enumerateDevices());
 
             self.$store.dispatch("face/draw", {
               canvasDiv,
