@@ -33,6 +33,7 @@
       <v-text-field
         label="ความรู้สึก"
         placeholder="มีความสุข"
+        :value="CustomerMood"
         outlined
       ></v-text-field>
     </v-col>
@@ -64,7 +65,8 @@ export default {
       isProgressActive: true,
       recognition: "",
       withOptions: [0, 0, 2, 3],
-      customerName: ""
+      customerName: "",
+      CustomerMood: ""
     };
   },
 
@@ -136,11 +138,19 @@ export default {
 
             if (!detection.recognition) return;
 
-            const { label } = detection.recognition;
-
             console.log("Recognized:", detection);
-
+            // Assign Label
+            const { label } = detection.recognition;
             this.customerName = label;
+
+            // Assign Expression
+            //  console.log("Expression:", expressions);
+            const expressions = detection.expressions;
+            const maxMoodConf = Math.max(...Object.values(expressions));
+            const key = Object.keys(expressions).filter(function(key) {
+              return expressions[key] === maxMoodConf;
+            })[0];
+            this.CustomerMood = key;
 
             self.$store.dispatch("face/draw", {
               canvasDiv,
