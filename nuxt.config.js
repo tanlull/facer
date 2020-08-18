@@ -1,7 +1,7 @@
 const pkg = require('./package')
 const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
-  HOST: process.env.HOST || 'localhost',
+  HOST: process.env.HOST || '0.0.0.0',
   PORT: process.env.PORT || 3000,
   PORT_API: process.env.PORT_API || 3001
 }
