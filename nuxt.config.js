@@ -1,11 +1,12 @@
 const pkg = require('./package')
 const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
-  HOST: process.env.HOST || '0.0.0.0',
+  HOST: process.env.HOST || 'localhost',
   PORT: process.env.PORT || 3000,
-  PORT_API: process.env.PORT_API || 3001
+  PORT_API: process.env.PORT_API || 3001,
+  HOST_API: process.env.HOST_API || 'localhost'
 }
-env.API_URL = process.env.API_URL || `http://localhost:${env.PORT_API}`
+env.API_URL = process.env.API_URL || `http://${env.HOST_API}:${env.PORT_API}`
 
 const isDev = env.NODE_ENV === 'development'
 const config = {

@@ -4,7 +4,7 @@ const consola = require('consola')
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
-const host = config.env.HOST || 'localhost'
+const host = config.env.HOST_API || 'localhost'
 const port = config.env.PORT_API || 3001
 
 // Listen the server
